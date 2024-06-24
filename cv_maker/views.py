@@ -17,22 +17,12 @@ class ProfileViewSet(ModelViewSet):
 
 class EducationViewSet(ModelViewSet):
     serializer_class = EducationSerializer
-    
-    def get_queryset(self):
-        return Education.objects.filter(profile_id=self.kwargs['profile_pk'])
+    queryset = Education.objects.all()
 
 
-    def get_serializer_context(self):
-        return {'profile_pk': self.kwargs['profile_pk']}
 
 
 class ExperienceViewSet(ModelViewSet):
     serializer_class = ExperienceSerializer
-
-    def get_queryset(self):
-        return Experience.objects.filter(profile_id=self.kwargs['profile_pk'])
-
-
-    def get_serializer_context(self):
-        return {'profile_pk': self.kwargs['profile_pk']}
+    queryset = Experience.objects.all()
 

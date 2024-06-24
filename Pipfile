@@ -9,6 +9,7 @@ djangorestframework = "*"
 phonenumbers = "*"
 pillow = "*"
 drf-nested-routers = "*"
+drf-yasg = "*"
 
 [dev-packages]
 

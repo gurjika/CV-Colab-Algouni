@@ -24,6 +24,7 @@ class Experience(models.Model):
 
 
 class Education(models.Model):
+
     DEGREE_CHOICES = (
         ('სტუდენტი', 'სტუდენტი'),
         ('ბაკალავრი', 'ბაკალავრი'),

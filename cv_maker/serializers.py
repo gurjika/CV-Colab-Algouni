@@ -3,23 +3,16 @@ import phonenumbers
 from cv_maker.models import Education, Experience, Profile
 
 class EducationSerializer(serializers.ModelSerializer):
-    profile = serializers.PrimaryKeyRelatedField(read_only=True)
     class Meta:
         model = Education
-        fields = "__all__"
+        fields = ['id', 'university', 'degree', 'finish_date', 'description', 'profile']
 
-    def create(self, validated_data):
-        obj = Education.objects.create(profile_id=self.context['profile_pk'], **validated_data)
-        return obj
+
 
 class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
-        fields = '__all__'
-
-    def create(self, validated_data):
-        obj = Experience.objects.create(profile_id=self.context['profile_pk'], **validated_data)
-        return obj
+        fields = ['id', 'position', 'employer', 'date_started', 'date_finished', 'description', 'profile']
 
 
 
@@ -28,7 +21,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     experience = ExperienceSerializer(many=True, read_only=True)
     class Meta:
         model = Profile
-        fields = "__all__"
+        fields = ['id', 'name', 'last_name', 'image', 'about_me', 'email', 'phone_num', 'education', 'experience']
 
 
 
