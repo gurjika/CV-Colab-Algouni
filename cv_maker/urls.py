@@ -10,4 +10,7 @@ education_router = routers.NestedDefaultRouter(router, parent_prefix='profile', 
 education_router.register('education', views.EducationViewSet, 'education')
 
 
-urlpatterns = router.urls + education_router.urls
+experience_router = routers.NestedDefaultRouter(router, parent_prefix='profile', lookup='profile')
+experience_router.register('experience', views.ExperienceViewSet, 'experience')
+
+urlpatterns = router.urls + education_router.urls + experience_router.urls

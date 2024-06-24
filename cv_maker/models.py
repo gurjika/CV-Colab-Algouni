@@ -25,9 +25,9 @@ class Experience(models.Model):
 
 class Education(models.Model):
     DEGREE_CHOICES = (
-        ('S', 'სტუდენტი'),
-        ('B', 'ბაკალავრი'),
-        ('M', 'დოქტორანტი'),
+        ('სტუდენტი', 'სტუდენტი'),
+        ('ბაკალავრი', 'ბაკალავრი'),
+        ('დოქტორანტი', 'დოქტორანტი'),
     )
     
     university = models.CharField(max_length=255)

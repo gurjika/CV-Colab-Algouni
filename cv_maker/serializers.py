@@ -17,7 +17,15 @@ class ExperienceSerializer(serializers.ModelSerializer):
         model = Experience
         fields = '__all__'
 
+    def create(self, validated_data):
+        obj = Experience.objects.create(profile_id=self.context['profile_pk'], **validated_data)
+        return obj
+
+
+
 class ProfileSerializer(serializers.ModelSerializer):
+    education = EducationSerializer(many=True, read_only=True)
+    experience = ExperienceSerializer(many=True, read_only=True)
     class Meta:
         model = Profile
         fields = "__all__"
@@ -38,4 +46,3 @@ class ProfileSerializer(serializers.ModelSerializer):
 
         return formatted_number
     
-
