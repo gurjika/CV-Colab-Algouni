@@ -1,5 +1,9 @@
 from django.core.exceptions import ValidationError
 import phonenumbers
+import re
+
+
+GEORGIAN_REGEX = r'^[ა-ჰ]+$'
 
 def validate_redberry_email(value: str):
     if not value.endswith('@redberry.ge'):
@@ -13,3 +17,8 @@ def validate_georgian_phone_number(value):
             raise ValidationError("The phone number is not valid.")
     except phonenumbers.NumberParseException:
         raise ValidationError("The phone number is not valid.")
+    
+
+def validate_georgian(value):
+    if not re.match(GEORGIAN_REGEX, value):
+        raise ValidationError('Only Georgian Characters')
