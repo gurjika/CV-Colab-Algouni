@@ -12,3 +12,28 @@ class Profile(models.Model):
     about_me = models.TextField(blank=True)
     email = models.EmailField(validators=[validate_redberry_email])
     phone_num = models.CharField(max_length=255, validators=[validate_georgian_phone_number])
+
+
+class Experience(models.Model):
+    position = models.CharField(max_length=255)
+    employer = models.CharField(max_length=255)
+    date_started = models.DateField()
+    date_finished = models.DateField()
+    description = models.TextField()
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='experience')
+
+
+class Education(models.Model):
+    DEGREE_CHOICES = (
+        ('S', 'სტუდენტი'),
+        ('B', 'ბაკალავრი'),
+        ('M', 'დოქტორანტი'),
+    )
+    
+    university = models.CharField(max_length=255)
+    degree = models.CharField(choices=DEGREE_CHOICES, max_length=255)
+    finish_date = models.DateField()
+    description = models.TextField()
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='education')
+
+

@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 phonenumbers = "*"
 pillow = "*"
+drf-nested-routers = "*"
 
 [dev-packages]
 
