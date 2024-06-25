@@ -30,7 +30,6 @@ class ProfileViewSet(ModelViewSet):
 
 
 class DegreeChoicesAPIView(APIView):
-
     def get(self, request):
         choices = dict(Education.DEGREE_CHOICES)
         return Response(choices)
