@@ -12,6 +12,9 @@ from rest_framework import status
 
 
 class ProfileViewSet(ModelViewSet):
+    """
+    A viewset for viewing and editing profile instances.
+    """
     serializer_class = ProfileSerializer
     queryset = Profile.objects.prefetch_related('education').prefetch_related('experience').all()
 
@@ -30,6 +33,9 @@ class ProfileViewSet(ModelViewSet):
 
 
 class DegreeChoicesAPIView(APIView):
+    """
+    API view to return the dictionary of degree choices available in the Education model.
+    """
     def get(self, request):
         choices = dict(Education.DEGREE_CHOICES)
         return Response(choices)
