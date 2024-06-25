@@ -15,6 +15,7 @@ django-cors-headers = "*"
 whitenoise = "*"
 gunicorn = "*"
 django-debug-toolbar = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
