@@ -1,12 +1,12 @@
 from rest_framework_nested import routers
-
+from django.urls import include, path
 from . import views
 
 router = routers.DefaultRouter()
 
-router.register(prefix='profile', viewset=views.ProfileViewSet, basename='profile')
-router.register(prefix='education', viewset=views.EducationViewSet, basename='education')
-router.register(prefix='experience', viewset=views.ExperienceViewSet, basename='experience')
+router.register(prefix='cv', viewset=views.ProfileViewSet, basename='cv')
+# router.register(prefix='education', viewset=views.EducationViewSet, basename='education')
+# router.register(prefix='experience', viewset=views.ExperienceViewSet, basename='experience')
 
 
 # education_router = routers.NestedDefaultRouter(router, parent_prefix='profile', lookup='profile')
@@ -16,4 +16,8 @@ router.register(prefix='experience', viewset=views.ExperienceViewSet, basename='
 # experience_router = routers.NestedDefaultRouter(router, parent_prefix='profile', lookup='profile')
 # experience_router.register('experience', views.ExperienceViewSet, 'experience')
 
-urlpatterns = router.urls
+urlpatterns = [
+    path('degree-choices/', views.DegreeChoicesAPIView.as_view(), name='degree-choice')
+]
+
+urlpatterns += router.urls

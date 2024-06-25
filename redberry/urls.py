@@ -40,7 +40,9 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('cv_maker.urls'))
+    path('api/', include('cv_maker.urls')),
+    path("__debug__/", include("debug_toolbar.urls")),
+
 ]
 
 
