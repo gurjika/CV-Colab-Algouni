@@ -10,6 +10,10 @@ phonenumbers = "*"
 pillow = "*"
 drf-nested-routers = "*"
 drf-yasg = "*"
+dj-database-url = "*"
+django-cors-headers = "*"
+whitenoise = "*"
+gunicorn = "*"
 
 [dev-packages]
 

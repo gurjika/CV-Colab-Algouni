@@ -24,15 +24,8 @@ class Experience(models.Model):
 
 
 class Education(models.Model):
-
-    DEGREE_CHOICES = (
-        ('სტუდენტი', 'სტუდენტი'),
-        ('ბაკალავრი', 'ბაკალავრი'),
-        ('დოქტორანტი', 'დოქტორანტი'),
-    )
-    
     university = models.CharField(max_length=255)
-    degree = models.CharField(choices=DEGREE_CHOICES, max_length=255)
+    degree = models.CharField(max_length=255)
     finish_date = models.DateField()
     description = models.TextField()
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='education')

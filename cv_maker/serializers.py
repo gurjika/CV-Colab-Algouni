@@ -25,17 +25,5 @@ class ProfileSerializer(serializers.ModelSerializer):
 
 
 
-    def validate_phone_num(self, value):
-
-        try:
-            parsed_number = phonenumbers.parse(value, "GE")
-        except phonenumbers.NumberParseException:
-            raise serializers.ValidationError("Invalid phone number")
-
-        if not phonenumbers.is_valid_number(parsed_number):
-            raise serializers.ValidationError("Invalid phone number")
-
-        formatted_number = phonenumbers.format_number(parsed_number, phonenumbers.PhoneNumberFormat.INTERNATIONAL)
-
-        return formatted_number
+   
     
