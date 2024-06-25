@@ -86,7 +86,7 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://redberry_user:7cPM4TdrT4I1AejmVWCvwI1jBSf2HMtP@dpg-cptihbt2ng1s73e1oi30-a.frankfurt-postgres.render.com/redberry')
+    'default': dj_database_url.parse('postgresql://redberry_user:7cPM4TdrT4I1AejmVWCvwI1jBSf2HMtP@dpg-cptihbt2ng1s73e1oi30-a.frankfurt-postgres.render.com/redberry'),
 }
 
 
@@ -143,8 +143,4 @@ CORS_ALLOW_ALL_ORIGINS = True
 #     # ...
 # ]
 
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
